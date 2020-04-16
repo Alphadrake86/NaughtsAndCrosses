@@ -4,125 +4,149 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:keepScreenOn="true"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/buttonTC"
+        android:id="@+id/btnTC"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:onClick="btnClick"
         android:text=" "
-        app:layout_constraintBottom_toTopOf="@+id/buttonMC"
-        app:layout_constraintEnd_toStartOf="@+id/buttonTR"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnMC"
+        app:layout_constraintEnd_toStartOf="@+id/btnTR"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonTL"
+        app:layout_constraintStart_toEndOf="@+id/btnTL"
         app:layout_constraintTop_toTopOf="@+id/topOfBoard" />
 
     <Button
-        android:id="@+id/buttonMC"
+        android:id="@+id/btnMC"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:onClick="btnClick"
         android:text=" "
-        app:layout_constraintBottom_toTopOf="@+id/buttonBC"
-        app:layout_constraintEnd_toStartOf="@+id/buttonMR"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnBC"
+        app:layout_constraintEnd_toStartOf="@+id/btnMR"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonML"
-        app:layout_constraintTop_toBottomOf="@+id/buttonTC" />
+        app:layout_constraintStart_toEndOf="@+id/btnML"
+        app:layout_constraintTop_toBottomOf="@+id/btnTC" />
 
     <Button
-        android:id="@+id/buttonTL"
+        android:id="@+id/btnTL"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:onClick="btnClick"
         android:text=" "
-        app:layout_constraintBottom_toTopOf="@+id/buttonML"
-        app:layout_constraintEnd_toStartOf="@+id/buttonTC"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnML"
+        app:layout_constraintEnd_toStartOf="@+id/btnTC"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/topOfBoard" />
 
     <Button
-        android:id="@+id/buttonBC"
+        android:id="@+id/btnBC"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:onClick="btnClick"
         android:text=" "
+        android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/bottomOfBoard"
-        app:layout_constraintEnd_toStartOf="@+id/buttonBR"
+        app:layout_constraintEnd_toStartOf="@+id/btnBR"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonBL"
-        app:layout_constraintTop_toBottomOf="@+id/buttonMC" />
+        app:layout_constraintStart_toEndOf="@+id/btnBL"
+        app:layout_constraintTop_toBottomOf="@+id/btnMC" />
 
     <Button
-        android:id="@+id/buttonMR"
+        android:id="@+id/btnMR"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:onClick="btnClick"
         android:text=" "
-        app:layout_constraintBottom_toTopOf="@+id/buttonBR"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnBR"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonMC"
-        app:layout_constraintTop_toBottomOf="@+id/buttonTR" />
+        app:layout_constraintStart_toEndOf="@+id/btnMC"
+        app:layout_constraintTop_toBottomOf="@+id/btnTR" />
 
     <Button
-        android:id="@+id/buttonBL"
+        android:id="@+id/btnBL"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:onClick="btnClick"
         android:text=" "
+        android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/bottomOfBoard"
-        app:layout_constraintEnd_toStartOf="@+id/buttonBC"
+        app:layout_constraintEnd_toStartOf="@+id/btnBC"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonML" />
+        app:layout_constraintTop_toBottomOf="@+id/btnML" />
 
     <Button
-        android:id="@+id/buttonTR"
+        android:id="@+id/btnTR"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:onClick="btnClick"
         android:text=" "
-        app:layout_constraintBottom_toTopOf="@+id/buttonMR"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnMR"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonTC"
+        app:layout_constraintStart_toEndOf="@+id/btnTC"
         app:layout_constraintTop_toTopOf="@+id/topOfBoard" />
 
     <Button
-        android:id="@+id/buttonBR"
+        android:id="@+id/btnBR"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:onClick="btnClick"
         android:text=" "
+        android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/bottomOfBoard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonBC"
-        app:layout_constraintTop_toBottomOf="@+id/buttonMR" />
+        app:layout_constraintStart_toEndOf="@+id/btnBC"
+        app:layout_constraintTop_toBottomOf="@+id/btnMR" />
 
     <Button
-        android:id="@+id/buttonML"
+        android:id="@+id/btnML"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:onClick="btnClick"
         android:text=" "
-        app:layout_constraintBottom_toTopOf="@+id/buttonBL"
-        app:layout_constraintEnd_toStartOf="@+id/buttonMC"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnBL"
+        app:layout_constraintEnd_toStartOf="@+id/btnMC"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonTL" />
+        app:layout_constraintTop_toBottomOf="@+id/btnTL" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/btnNewGame"
         android:layout_width="340dp"
         android:layout_height="70dp"
-        android:text="Button"
+        android:onClick="reset"
+        android:text="New Game!"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/txtPlayerTurn"
         app:layout_constraintVertical_bias="0.333" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txtPlayerTurn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:text="TextView"
+        android:autoText="true"
+        android:text="Player X's turn"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/bottomOfBoard" />
