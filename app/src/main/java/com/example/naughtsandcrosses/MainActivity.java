@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.xfirst:
-                xstart = item.isChecked();
+                xstart = !item.isChecked();
                 item.setChecked(xstart);
                 return true;
             case R.id.about:
