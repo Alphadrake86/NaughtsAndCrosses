@@ -1,58 +1,48 @@
 package com.example.naughtsandcrosses;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btntc;
-    private Button btntl;
-    private Button btntr;
-
-    private Button btnmc;
-    private Button btnml;
-    private Button btnmr;
-
-    private Button btnbc;
-    private Button btnbl;
-    private Button btnbr;
 
     private TextView Playertext;
-    private Button btnNG;
+
 
     private int[] gamestate;
     private ArrayList<Button> buttons;
     private int round;
     private boolean turnX;
+    private boolean xstart;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setRequestedOrientation(SCREEN_ORIENTATION_PORTRAIT);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
 
-        btntl = findViewById(R.id.btnTL);
-        btntc = findViewById(R.id.btnTC);
-        btntr = findViewById(R.id.btnTR);
-        btnml = findViewById(R.id.btnML);
-        btnmc = findViewById(R.id.btnMC);
-        btnmr = findViewById(R.id.btnMR);
-        btnbl = findViewById(R.id.btnBL);
-        btnbc = findViewById(R.id.btnBC);
-        btnbr = findViewById(R.id.btnBR);
+        Button btntl = findViewById(R.id.btnTL);
+        Button btntc = findViewById(R.id.btnTC);
+        Button btntr = findViewById(R.id.btnTR);
+        Button btnml = findViewById(R.id.btnML);
+        Button btnmc = findViewById(R.id.btnMC);
+        Button btnmr = findViewById(R.id.btnMR);
+        Button btnbl = findViewById(R.id.btnBL);
+        Button btnbc = findViewById(R.id.btnBC);
+        Button btnbr = findViewById(R.id.btnBR);
 
         Playertext = findViewById(R.id.txtPlayerTurn);
-        btnNG = findViewById(R.id.btnNewGame);
 
         gamestate = new int[9];
         buttons = new ArrayList<Button>();
@@ -61,8 +51,32 @@ public class MainActivity extends AppCompatActivity {
         buttons.add(btnbl); buttons.add(btnbc); buttons.add(btnbr);
         round = 1;
         turnX = true;
+        xstart =true;
 
         Playertext.setText("Player X's Turn");
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.xfirst:
+                xstart = item.isChecked();
+                item.setChecked(xstart);
+                return true;
+            case R.id.about:
+                Intent i = new Intent(this,MainActivity2.class);
+                startActivity(i);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void btnClick(View v){
@@ -84,9 +98,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void reset(View v){
         round = 1;
-        turnX = true;
+        turnX = xstart;
         gamestate = new int[9];
-        Playertext.setText("Player X's Turn");
+        Playertext.setText("Player "+(turnX?"X":"O")+"'s Turn");
         for(Button b: buttons){
             b.setEnabled(true);
             b.setText(" ");
@@ -96,11 +110,11 @@ public class MainActivity extends AppCompatActivity {
     private boolean checkGame(){
         if(round == 9 && !checkForWin()){
             Playertext.setText("Draw!");
-            toggleAll(false);
+            toggleAll();
             return false;
         }
         else if (round >= 3 && checkForWin()){
-            toggleAll(false);
+            toggleAll();
             Playertext.setText("Player " + (turnX? "X":"O") + " wins!");
             return false;
         }
@@ -109,9 +123,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void toggleAll(boolean able) {
+    private void toggleAll() {
         for (Button b: buttons) {
-            b.setEnabled(able);
+            b.setEnabled(false);
         }
     }
 
